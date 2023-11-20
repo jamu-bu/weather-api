@@ -1,0 +1,63 @@
+html {
+    background: linear-gradient(#799ce7, #AECFFF);
+    color: white;
+    height: 110%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.WeatherCards, .currentTemp {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.BorderCards, .cityCards {
+    border-radius: 3rem;
+    width: 15rem;
+    min-height: 15rem;
+    background: linear-gradient(#799ce7, #AECFFF);   
+    margin: 5px;
+
+}
+
+.cardContent, .CityDet {
+    text-align: center;
+    margin: 10px;
+}
+
+input, button {
+    border-radius: 3rem;
+    border-width: 0;
+    height: 2rem;
+}
+
+input {
+    width: 200px
+}
+
+#Relook {
+    background-color: #5d77b079;
+    margin: 3px;
+    color: white;
+
+}
+
+#SearchBtn {
+    background-color: #4e7de2;
+    color: white;
+}
+
+.searchSect{
+    text-align: center;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
