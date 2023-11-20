@@ -20,7 +20,7 @@ html {
 
 }
 
-.cardContent, .CityDet {
+.cardContent, .cityContainer {
     text-align: center;
     margin: 10px;
 }
