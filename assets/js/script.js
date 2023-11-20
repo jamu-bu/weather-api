@@ -144,7 +144,7 @@ $('#locationBtn').on('click', '#Relook' , function (event) {
 
 
 
-.catch(err => alert("Wrong city name"))
+.catch(err => alert("please enter city name"))
 
 // fetch request to get 5-day forecast
 fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=ec96c3d6509b8a012ba07a86b8f2719b')
