@@ -1,22 +1,23 @@
-var $SearchBtn = $('#SearchBtn');
-var Input = document.querySelector('#search-city');
-var CityName = document.querySelector('#CityName');
+
 var Temp = document.querySelector('#Temp');
 var Wind = document.querySelector('#Wind');
 var Humid = document.querySelector('#Humidity');
 var Index = document.querySelector('#Index');
-var BtnPlace = $('#locationBtn');
-let createImage= document.createElement('img');
-let createImage2= document.createElement('img');
-let createImage3= document.createElement('img');
-var HistoryCities = $(JSON.parse(localStorage.getItem('saved')));
+var putBtn = $('#locationBtn');
+var $SearchBtn = $('#SearchBtn');
+var Input = document.querySelector('#search-city');
+var CityName = document.querySelector('#CityName');
+let createImg= document.createElement('img');
+let createImg2= document.createElement('img');
+let createImg3= document.createElement('img');
+var cityHistory = $(JSON.parse(localStorage.getItem('saved')));
 
 addEntry();
 function addEntry() {
-    HistoryCities.sort();
-    for (var i = 0; i < HistoryCities.length; i++){
-        if(HistoryCities[i] === HistoryCities[i -1]){
-            HistoryCities.splice(i, 1);
+    cityHistory.sort();
+    for (var i = 0; i < cityHistory.length; i++){
+        if(cityHistory[i] === cityHistory[i -1]){
+            cityHistory.splice(i, 1);
             i--;
         }
     }
@@ -24,10 +25,10 @@ function addEntry() {
 }
 
 function BTNCreator(){
-    BtnPlace.children().remove();
-    for(var i = 0; i <HistoryCities.length; i++){
+    putBtn.children().remove();
+    for(var i = 0; i <cityHistory.length; i++){
         var btn = document.createElement("button");
-        btn.textContent = (HistoryCities[i]);
+        btn.textContent = (cityHistory[i]);
         btn.setAttribute('id', 'Relook');
         document.getElementById('locationBtn').appendChild(btn);
     }
@@ -53,12 +54,12 @@ $SearchBtn.on('click', function (event) {
             Humid.innerHTML = ("Humidity: " + HumidValue);
 
 
-            createImage.src= "http://openweathermap.org/img/wn/" + ImgValue + ".png";
+            createImg.src= "http://openweathermap.org/img/wn/" + ImgValue + ".png";
             
-            document.getElementById('Index').append(createImage);
+            document.getElementById('Index').append(createImg);
 
-            HistoryCities.push(CityValue);
-            localStorage.setItem('saved', JSON.stringify(HistoryCities));
+            cityHistory.push(CityValue);
+            localStorage.setItem('saved', JSON.stringify(cityHistory));
             addEntry(); 
         })
 
@@ -132,12 +133,12 @@ $('#locationBtn').on('click', '#Relook' , function (event) {
         Humid.innerHTML = ("Humidity: " + HumidValue);
 
 
-        createImage.src= "http://openweathermap.org/img/wn/" + ImgValue + ".png";
+        createImg.src= "http://openweathermap.org/img/wn/" + ImgValue + ".png";
         
-        document.getElementById('Index').append(createImage);
+        document.getElementById('Index').append(createImg);
 
-        HistoryCities.push(CityValue);
-        localStorage.setItem('saved', JSON.stringify(HistoryCities));
+        cityHistory.push(CityValue);
+        localStorage.setItem('saved', JSON.stringify(cityHistory));
         addEntry(); 
     })
 
